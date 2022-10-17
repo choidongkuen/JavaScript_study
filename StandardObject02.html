@@ -1,0 +1,95 @@
+<!-- 표준 객체에 대해 알아보자 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>String 객체</h2>
+    <script>
+    // Number 객체와 마찬가지로 String 객체도 Wrapper 객체이다.
+        var str = "JavaScript"
+        var strObj = new String("JavaScript");
+
+        document.write(typeof(str) + "<br>");
+        document.write(typeof(strObj) + "<br>");
+
+        document.write(str == strObj); // true
+        document.write("<br>");
+        document.write(str === strObj); // false
+
+    </script>
+
+    <h2>String 객체의 메소드</h2>
+
+    <script>
+        var str = "abcDEFabc";
+        // 1. indexOf() & lastIndexOf()
+        // 주어지는 문자열의 인덱스 반환
+
+        document.write(str.indexOf('abc')); // 0
+        document.write(str.lastIndexOf('abcd')); // -1 (존재 x)
+        
+        document.write(str.indexOf('abc'), 3); // 시작위치 3부터 찾기 시작함
+        document.write(str.lastIndexOf('abc')); // 6
+
+
+        // 2. charAt() & charCodeAt() & charPointAt()
+        // charCodeAt() (해당 위치에 존재하는 UTF-16 코드를 반환)
+        // charPointAt() (해당 위치에 존재하는 유니코드 코드 포인트를 반환)
+
+        var str = "abcDEFabc";
+
+		document.write(str.charAt(0) + "<br>");			// a
+		document.write(str.charAt(10) + "<br>");		// 빈 문자열
+		document.write(str.charCodeAt(0) + "<br>");		// 97('a')
+		document.write(str.codePointAt(0));				// 97('a')
+
+        // 3. slice() & substring() & substr()
+        // 문자열 추출
+
+        var str = "abcDEFabc";
+
+		document.write(str.slice(2, 6) + "<br>");		// cDEF
+		document.write(str.slice(-4, -2) + "<br>");		// Fa(뒤에서부터)
+		document.write(str.slice(2) + "<br>");			// cDEFabc(end point가 없으면 끝까지)
+
+		document.write(str.substring(2, 6) + "<br>");	// cDEF
+		document.write(str.substr(2, 4));				// cDEF
+
+        // 4. split()
+        // 문자열을 구분자 기준으로 나눈 후 문자열을 하나의 배열로 반환
+
+        var str = "자바스크립트는 너무 멋져요! 그리고 유용해요.";
+
+		document.write(str.split() + "<br>");		// 구분자를 명시하지 않으면 아무런 동작도 하지 않음.
+		document.write(str.split("") + "<br>");		// 한 문자("")씩 나눔.
+		document.write(str.split(" ") + "<br>");	// 띄어쓰기(" ")를 기준으로 나눔.
+		document.write(str.split("!"));				// 느낌표("!"")를 기준으로 나눔.
+
+        // 5. concat()
+        // 문자열을 결합하여 새로운 문자열을 반환
+        // 문자열은 immutable
+
+        var str = "자바스크립트";
+
+		document.write(str + "<br>");
+		document.write(str.concat("는 너무 멋져요!") + "<br>");
+		document.write(str.concat("는 너무 멋져요!", " 그리고 유용해요!" + "<br>"));
+		document.write(str);
+
+
+        // 6. toUpperCase() & toLowerCase()
+        // 7. trim() 
+        // 앞 뒤 공백 제거
+        // 8. 정규 표현식을 이용한 문자열 조작
+
+
+
+    </script>
+
+</body>

@@ -126,7 +126,29 @@
         document.write(Object.isExtensible(day)); // false
     </script>
 
+    <h2> valueOf </h2>
+    
+    <script>
+    // 해당 객체가 원시 타입의 값을 가지고 있다면, 원시타입의 값을 반환
+    // 만약 원시 타입의 값이 없다면, 객체 자신을 반환
+    function func(n){
+        this.number = n;
+    }
+
+    myFunc = new func(4);
+    document.write(myFunc + 5);
+
+    func.prototype.valueOf = function(){
+        return this.number;
+    } // 해당 프로토타입에 새로운 메소드 추가
+    document.write(myFunc + 5);
+
+
+
+    </script>
+
     <h2>getter 메소드와 setter 메소드</h2>
+
 
     <script>
         var gildong = {age : 18};

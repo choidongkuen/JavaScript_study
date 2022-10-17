@@ -1,0 +1,89 @@
+<!-- DOM 요소의 선택 by document -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>HTML 태그 이름을 이용한 선택</h1>
+    <u1>
+        <li>첫 번째 아이템이에요</li>
+        <li>두 번째 아이템이에요</li>
+        <li>세 번째 아이템이에요</li>
+        <li>네 번째 아이템이에요</li>
+        <li>다섯 번째 아이템이에요</li>
+    </u1>
+
+    <script>
+        // Tag Name을 이용한 요소 선택
+    
+        var selectedItem = document.getElementsByTagName("li");
+        for(var i = 0; i < selectedItem.length; i ++){
+            selectedItem.item(i).style.color = "red";
+            // item 메소드는 해당 HTML 객체 집합에서 전달받은 인덱스에 해당하는 요소를 반환
+        }
+    </script>
+    <h1>Id를 이용한 선택</h1>
+        
+    <ul>
+        <li>첫 번째 아이템이에요!</li>
+        <li id="even">두 번째 아이템이에요!</li>
+        <li>세 번째 아이템이에요!</li>
+        <li id="even">네 번째 아이템이에요!</li>
+        <li>다섯 번째 아이템이에요!</li>
+    </ul>
+
+    <script>
+        var selectedItem = document.getElementById("even");
+        selectedItem.style.color = "red";
+    </script>
+
+    <h1>클래스를 이용한 선택</h1>
+    <ul>
+		<li class="odd">첫 번째 아이템이에요!</li>
+		<li>두 번째 아이템이에요!</li>
+		<li class="odd">세 번째 아이템이에요!</li>
+		<li>네 번째 아이템이에요!</li>
+		<li class="odd">다섯 번째 아이템이에요!</li>
+	</ul>
+
+    <script>
+        var selectedItem = document.getElementsByClassName("odd");
+
+        for(var i = 0; i < selectedItem.length; i ++)
+            selectedItem.item(i).style.color = "red";
+
+    </script>
+
+    <h1>name 속성을 이용한 선택</h1>
+    <p name="first">첫 번째 단락이에요!</p>
+	<ul>
+		<li name="first">첫 번째 아이템이에요!</li>
+		<li>두 번째 아이템이에요!</li>
+		<li>세 번째 아이템이에요!</li>
+		<li>네 번째 아이템이에요!</li>
+		<li>다섯 번째 아이템이에요!</li>
+	</ul>
+
+    <script>
+        var selectedItem = document.getElementsByName("first");
+        for(var i = 0; i < selectedItem.length; i ++){
+            selectedItem.item(i).style.color = "red";
+        }
+    </script>
+
+    <h1>HTML 객체 집합을 이용한 선택</h1>
+    
+    <script>
+        var title = document.title;
+        document.write(title);
+    </script>
+
+
+</body>
+</html>

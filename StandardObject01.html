@@ -1,0 +1,104 @@
+<!-- 표준 객체에 대해 알아보자 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>숫자 리터럴의 진법</h2>
+    <script>
+        // 숫자 데이터 타입의 toString() 메소드는 해당 숫자의 진버븡로 변환된 형태의 문자열을 반환
+
+        var num = 256;
+        document.write(num.toString(2)); // 2진법
+        document.write(num.toString(8)); // 8진법
+        document.write(num.toString(16)); // 16진법
+
+        document.write(num.toString(2) / 2); // 50000000
+    </script>
+
+    <h2>Number 객체</h2>
+    <script>
+        //js에서 보총 숫자는 숫자 리터럴을 사용해서 표현(즉, 원시타입)
+        // but, 명시적으로 Number 객체를 생성할 수 있다.
+        // 이는 원시 값을 감싸는 wrapper 객체이다.
+
+        var x = 100;
+        var objX = new Number(x);
+
+        document.write(x + "<br>");
+        document.write(objX + "<br>");
+        document.write(typeof x + "<br>");
+        document.write(typeof objX + "<br>");
+
+        document.write(x === objX); // false
+        // 숫자 리터럴을 Number 객체로 표현하는 것은 매우 많은 연산 요구
+        // 따라서 가능하면 숫자 리터럴을 사용하여 수를 표현하자.
+    </script>
+
+    <h2>Number 객체의 메소드</h2>
+    <script>
+        // 1. parseFloat() : 해당 문자열을 파싱해서, 문자열에 포함된 숫자 부분을 실수 형태로 반환.
+        // 문자열에 여러 숫자가 존재하면, 첫 번째 숫자만을 실수 형태로 반환
+
+        document.write(Number.parseFloat("12") + "<br>"); // 12
+        document.write(Number.parseFloat("12.34") + "<br>"); // 12
+        document.write(Number.parseFloat("12문자열") + "<br>"); // 12
+        document.write(Number.parseFloat("문자열3") + "<br>"); // NaN
+
+        document.write("<br>" * 2);
+
+        // 2. parseInt() : 해당 문자열을 파싱해서, 문자열에 포함된 숫자 부분을 정수 형태로 반환한다.
+        // 문자열에 여러 숫자가 존재하면, 첫 번째 숫자만을 정수 형태로 반환
+
+        document.write(Number.parseInt("12.34") + "<br>"); // 12
+        document.write(Number.parseInt("12문자열") + "<br>"); // 12
+        document.write(Number.parseFloat("12.312321") + "<br>"); // 12
+        document.write(Number.parseFloat("문자열56") + "<br>"); // NaN
+
+        document.write("<br>" * 2);
+
+        // 3. isNaN() : 전달되는 값이 NaN 인지 검사
+        document.write(number.isNaN(NaN) + "<br>"); // true
+        document.write(number.isNaN(undefined)+ "<br>"); // false
+
+        document.write("<br>" * 2);
+
+        // 4. isFinite() : 전달되는 값이 유한한 수인지 아닌지를 검사
+        document.write(Number.isFinite(0)); // false
+        document.write(Number.isFinite(3e50)); // true
+        document.write(Number.isFinite(Infinity)); // true
+
+        document.write("<br>" * 2);
+
+
+        // 5. isInteger() : 전달되는 값이 정수인지 아닌지를 검사
+        document.write(Number.isInteger(0)); // true
+        documemt.write(Number.isIntger(-100)); // true
+        documemt.write(Number.isIntger("문자열")); // false
+        documemt.write(Number.isIntger(Infinity)); // false
+
+        document.write("<br>" * 2);
+
+
+        // 6. isSafeInteger() : 전달되는 값이 안전한 정수인지 아닌지를 검사
+        // IEEE 754 에서 정의한 숫자의 범위에 포함되는지 아닌지
+
+        // 7. toString(), valueOf(), 기타
+
+
+
+
+        
+
+
+
+
+
+    </script>
+    
+</body>
+</html>
