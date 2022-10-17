@@ -1,0 +1,142 @@
+<!--  객체 = 특성(attribute) + 메소드(method) -->
+<!--  자바스크립트의 기본 타입은 객체이다. -->
+<!--  특성에는 메소드도 올 수 있다. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Object</title>
+</head>
+<!-- 객체 다루기 -->
+<body>
+    <h1>객체 프로퍼티의 삭제</h1>
+
+    <script>
+        function Dog(color, name, age){
+            this.color = color;
+            this.name = name;
+            this.age = age;
+        }
+        var myDog = new Dog("흰색","마루",1);
+        delete myDog["age"]; // myDog 객체의 age 속성 삭제
+
+        document.write("우리집 강이지의 나이는 " + myDog.age + " 입니다.");
+    </script>
+
+    <br><br>
+
+</body>
+
+<!-- 객체의 프로퍼티 순회 -->
+<!-- 열걸할 수 있는 프로퍼티란 내부적으로 enumerable 플래스가 true로 설정된 프로퍼티를 의미 -->
+
+<body>
+    <script>
+
+        var arr = [3,4,5];
+        for(var i = 0 ; i < arr.length ; i ++){
+            document.write(i + " ");
+            // arr의 인덱스
+        }
+
+        document.write("<br>");
+
+        for(var i in arr){
+            document.write(arr[i] + " ");
+            // arr의 인덱스에 존재하는 값
+        }
+    </script>
+
+    <br><br>
+    <!-- 추가적으로 Object.keys(), Object.getOwnPropertyNames() 메소드 존재 -->
+    <script>
+        function Dog(color, name ,age){
+            this.color = color;
+            this.name = name;
+            this.age = age;
+        }
+
+        var myDog = new Dog("흰색","마루",1);
+
+        Object.defineProperty(myDog, 'color',{enumerable : false});
+        // <!-- 해당 객체의 프로퍼티 특성 변경 -->
+
+        document.write(Object.keys(myDog) + "<br>");
+        document.write(Object.getOwnPropertyNames(myDog));
+    </script>
+
+
+    <h2> 객체의 hasOwnProperty() 메소드 </h2>
+    <!-- 1. 주어지는 프로퍼티가 해당 객체의 프로퍼티에 해당되는지 확인 -->
+    <script>
+        function Dog(color, name, age, family){
+            this.color = color ;
+            this.name = name;
+            this.age = age; 
+            this.family = family;
+            this.brreed = function(){return this.color + " " + this.family; }
+        }
+        var myDog = new Dog("검정색","곰",3,"불독");
+
+        document.write(myDog.hasOwnProperty("color") + "<br>");
+        document.write(myDog.hasOwnProperty("bread") + "<br>");
+        document.write(myDog.hasOwnProperty("class") + "<br>");
+
+    </script>
+
+    <h2> 객체의 propertyIsEnumerable() 매소드</h2>
+    <!-- 2. 특정 프로퍼티가 해당 객체에 존재허고, 열거할 수 있는 프로퍼티인지 검사 -->
+    <!-- hasOwnProperty 포함 -->
+    <script>
+    function Dog(color, name, age, family){
+        this.color = color ;
+        this.name = name;
+        this.age = age; 
+        this.family = family;
+        this.brreed = function(){return this.color + " " + this.family; }
+    }
+    var myDog = new Dog("검정색","곰",3,"불독");
+
+    Object.defineProperty(myDog, "color",{enumerable : false});
+    // 해당 객체의 프로퍼티를 추가해주는 메소드 + 속성까지도 설정 가능
+    document.write(myDog.propertyIsEnumerable("color") + "<br>");
+    document.write(myDog.propertyIsEnumerable("name") + "<br>");
+
+    </script>
+
+    <h2> 객체의 isPrototypeOf() 메소드</h2>
+    <!-- 3. 특정 객체의 프로토타입 체인에 현재 객체가 존재하는지 검사 즉, 해당 객체가 특정 프로토타입의 객체인지를 검사 -->
+    <script>
+        var day = new Date();
+        document.write(Date.prototype.isPrototypeOf(day) + "<br>"); // true
+        document.write(Date.prototype.isPrototypeOf(new String())); // false
+    </script>
+
+    <h2> 객체의 isExtensible() 메소드 </h2>
+    <!-- 4. 객체에 새로운 프로퍼티를 추가할 수 있는지 여부를 반환합니다. -->
+
+    <script>
+        var day = new Date();
+
+        document.write(Object.isExtensible(day) + "<br>"); // true
+
+        var myDay = Object.preventExtensions(day);
+        document.write(Object.isExtensible(day)); // false
+    </script>
+
+    <h2>getter 메소드와 setter 메소드</h2>
+
+    <script>
+        var gildong = {age : 18};
+        document.write(gildong.age + "<br>");
+
+        Object.defineProperty(gildong, "americanAge", {get: function(){return this.age - 1; }});
+
+        document.write(gildong.americanAge); // 17
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!-- document.write()와  console.log() -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+	<h1>
+		document.write() 버튼 사용해보기
+	</h1>
+	<button onclick = "document.write(4*5)"> 버튼을 눌러주세요 </button>
+</body>
+
+<body>
+	
+	<h1>
+		console.log() 버튼 사용해보기		
+	</h1>
+
+	<p>F12를 눌러서 콘솔 화면을 열면 결과를 확인할 수 있씁니다.</p>
+
+	<!-- 맥os : command + option + I 개발자도구 창 -->
+	<script>
+		console.log(4*5);
+	</script>
+</body>
+<body>
+	<h1>typeof 연산자</h1>
+	<p id = "result"></p>
+
+	<script>
+		document.getElementById("result").innerHTML = (typeof 10) + "<br>";
+		document.getElementById("result")
+	</script>
+
+</body>
+</html>
