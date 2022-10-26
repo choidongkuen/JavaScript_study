@@ -1,0 +1,31 @@
+<!-- 브라우저 객체 모델(BOM) 에 대해 공부해보자 -->
+<!-- 브라우저의 정보에 접근하거나 브라우저의 여러 기능들을 제어할 수 있음 -->
+<!-- BOM 모델의 객체들은 전역 객체로 사용할 수 있다. -->
+
+<!-- 3. History 객체 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p>아래 버튼을 눌러 새로운 문서를 연 후에 브라우저의 뒤로 가기 버튼을 눌러보세요!</p>
+    <button onclick = "openDocument()">새로운 문서 열기</button>
+    <p id = "text"></p>
+    <script>
+        // history 객체의 length 프로퍼티는 브라우저의 히스토리 목록의 갯수를 반환
+        function openDocument(){
+            location.assign("Browser02.html");
+        }
+        document.getElementById("text").innerHTML = "현재 브라우저의 히스토리 목록의 갯수는 " + history.length + " 개 입니다.";å
+    </script>
+
+    <!-- 그 외 go(),back(),forward() 메소드가 존재 -->
+
+    
+</body>
+</html>

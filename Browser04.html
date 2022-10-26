@@ -1,0 +1,40 @@
+<!-- 브라우저 객체 모델(BOM) 에 대해 공부해보자 -->
+<!-- 브라우저의 정보에 접근하거나 브라우저의 여러 기능들을 제어할 수 있음 -->
+<!-- BOM 모델의 객체들은 전역 객체로 사용할 수 있다. -->
+
+<!-- 4. Screen 객체 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>사용자의 모니터의 크기</h1>
+
+    <script>
+        // screen 객체는 사용자의 디스플레이 화면에 대한 다양한 정보를 저장하는 객체
+        document.write("현재 사용자의 디스플레이 화면의 너비는 " + screen.width + "픽셀입니다.<br>");
+        document.write("현재 사용자의 디스플레이 화면의 높이는 " + screen.height+ "픽셀입니다.<br>");
+
+        document.write("현재 브라우저의 창의 너비는 " + window.outerWidth + "픽셀입니다.<br>");
+        document.write("현재 브라우저의 창의 높이는 " + window.outerHeight + "픽셀입니다.<br>");
+    </script>
+</body>
+
+<body>
+    <h1>실제 사용 가능한 화면 크기</h1>
+    <script>
+
+        document.write("실제 사용할 수 있는 화면의 너비는 " + screen.availWidth + "<br>");
+        document.write("실제 사용할 수 있는 화면의 높이는 " + screen.availHeight);
+
+    </script>
+
+
+
+</body>
+</html>

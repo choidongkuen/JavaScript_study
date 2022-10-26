@@ -1,0 +1,50 @@
+<!-- 브라우저 객체 모델(BOM) 에 대해 공부해보자 -->
+<!-- 브라우저의 정보에 접근하거나 브라우저의 여러 기능들을 제어할 수 있음 -->
+<!-- BOM 모델의 객체들은 전역 객체로 사용할 수 있다. -->
+
+<!-- 2. location 객체 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>현재 문서의 URL 주소</h1>
+    <script>
+        // location.href 를 이용하면 현재 문서의 전체 URL 주소를 문자열로 반환한다.
+        document.write("현재 문서의 URL 주소는 " + location.href + " 입니다.<br>");
+        document.write("현재 문서의 호스트 이름은 " + location.hostNname + " 입니다.<br>");
+        document.write("현재 문서의 포트 번호는 " + location.port + " 입니다.<br>");
+        document.write("현재 문서의 호스트는 " + location.host + " 입니다.<br>");
+        document.write("현재 문서의 파일 경로명은 " + location.pathname + " 입니다.<br>");
+
+    </script>
+
+    <h1>현재 창에 문서 불러오기</h1>
+    <p>아래 버튼을 눌러 새로운 문서를 연 후에 브라우저의 뒤로 가기 버튼을 눌러보세요!</p>
+
+    <button onclick = "openDocument()">새로운 문서 열기</button>
+    <button onclick = "openDocumentWithReplace()">이전 문서 삭제 후 새로운 문서 열기</button>
+
+    <script>
+        // assinlg() : 현재 창에 해당 주소에 대한 웹 페이지를 띄운다.
+        // replace() : 현재 창에 해당 주소에 대한 웹 페이지를 띄우되, 기존 웹페이지는 히스토리에서 제거(뒤로 가기해도 돌아갈 수 없음)
+        
+
+        function openDocument(){
+
+            location.assign("DOM.html");
+        }
+
+        function openDocumentWithReplace(){
+            location.replace("Browser01.html");
+        }
+    </script>
+    
+</body>
+</html>
